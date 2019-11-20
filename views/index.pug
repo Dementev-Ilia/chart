@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  article
+    section
+      form#autorization(action="")
+        label(for="userName") Введите имя
+        input(autocomplete="off" name="userName" id="userName")
+        label(for="room") Введите номер комнаты
+        input(autocomplete="off" name="room" id='room')
+        button Отправить
+    section
+      ul#messages
+      form#textField(action="")
+        input#m(autocomplete="off")
+        button#btn Отправить
+
+  script(src="/socket.io/socket.io.js")
+  script(src="/javascripts/index.js")
