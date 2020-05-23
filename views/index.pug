@@ -5,14 +5,15 @@ block content
     section
       form#autorization(action="")
         label(for="userName") Введите имя
-        input(autocomplete="off" name="userName" id="userName")
+        input(autocomplete="off" name="userName" id="userName" required)
         label(for="room") Введите номер комнаты
-        input(autocomplete="off" name="room" id='room')
+        input(autocomplete="off" name="room" id='room' required)
         button Отправить
-    section
+    section#messsageList
       ul#messages
+    section
       form#textField(action="")
-        input#m(autocomplete="off")
+        input#m(autocomplete="off" required)
         button#btn Отправить
 
   script(src="/socket.io/socket.io.js")

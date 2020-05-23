@@ -53,11 +53,22 @@ function normalizePort(val) {
 /**
  * Подключение socket
  */
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
+io.on('connection', (socket) => {
+  socket.userName = "Гость"
+  socket.room = "1"
+
+  socket.on('autorization', (data) => {
+    console.log('User: ' + data.user, "Room: " + data.room);
+    socket.userName = data.user;
+    socket.room = data.room;
+  });
+
+  socket.on('chat message', (data) => {
+    console.log('message: ' + data.msg);
   });
 });
+
+
 
 /**
  * Event listener for HTTP server "error" event.
